@@ -1,4 +1,23 @@
-Mapping_Cabinet_IO.AE13_Panel.Outputs.BCN1_13_000_0000.Beacon_Red:=  SafetyOutput.EmergencyActivated.AE13  AND fbBlink_500ms.Pulse; 
+EmergencyCircuitOK_All := SafetyOutput.EmergencyCircuitOk.AE13 
+                AND SafetyOutput.EmergencyCircuitOk.SG100 
+                 AND SafetyOutput.EmergencyCircuitOk.SG101 
+                 AND SafetyOutput.EmergencyCircuitOk.SG102 
+                 AND SafetyOutput.EmergencyCircuitOk.SG103 
+                 AND SafetyOutput.EmergencyCircuitOk.SG104 
+                 AND SafetyOutput.EmergencyCircuitOk.SG105 
+                 AND SafetyOutput.EmergencyCircuitOk.SG106 
+                 AND SafetyOutput.EmergencyCircuitOk.SG107 
+                 AND SafetyOutput.EmergencyCircuitOk.SG108 
+                 AND SafetyOutput.EmergencyCircuitOk.SG109 
+                 AND SafetyOutput.EmergencyCircuitOk.SG110 
+                 AND SafetyOutput.EmergencyCircuitOk.SG600 
+                 AND SafetyOutput.EmergencyCircuitOk.SG601 
+                 AND SafetyOutput.EmergencyCircuitOk.SG700 
+                 AND SafetyOutput.EmergencyCircuitOk.SG701; 
+ 
+ 
+ 
+ Mapping_Cabinet_IO.AE13_Panel.Outputs.BCN1_13_000_0000.Beacon_Red:=  SafetyOutput.EmergencyActivated.AE13  AND fbBlink_500ms.Pulse; 
 Mapping_Cabinet_IO.AE13_Panel.Outputs.EPC_1E33001H.PL_Red :=  SafetyOutput.EmergencyActivated.EPC_13_100_0040  AND fbBlink_500ms.Pulse; 
 Mapping_Cabinet_IO.AE13_Panel.Outputs.EPC_133001X.PL_Red :=  SafetyOutput.EmergencyActivated.EPC_13_100_0110  AND fbBlink_500ms.Pulse; 
 Mapping_Cabinet_IO.AE13_Panel.Outputs.EPC_133019C.PL_Red :=  SafetyOutput.EmergencyActivated.EPC_13_100_0235  AND fbBlink_500ms.Pulse; 
