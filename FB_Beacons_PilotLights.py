@@ -138,20 +138,20 @@ with open('outputFB_Pilot_Beacon.txt', 'w') as f:
 
 
 
-    for bcn in bcnBY_list:
-        f.write(f'//{bcn}.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[2,2]; \n')
-        f.write(f'//{bcn}.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[2,3]; \n')
+    for idx, bcn in enumerate(bcnBY_list):
+        f.write(f'//{bcn}.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[{idx + 2},2]; \n')
+        f.write(f'//{bcn}.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[{idx + 2},3]; \n')
         f.write('\n')
 
     f.write('\n \n \n')
 
-    for bcn in bcnBYGR_list:
+    for idx, bcn in enumerate(bcnBYGR_list):
         f.write(f'{bcn}.Beacon_Green		:= (fbSG_{bcn[8:11]}.HW_Outputs.GroupIsStarting AND fbBlink_250ms.Pulse) OR \n')
-        f.write(f'                                   fbSG_{bcn[8:11]}.HW_Outputs.GroupStarted OR ToggleBit_BCN[5,1]; \n')
+        f.write(f'                                   fbSG_{bcn[8:11]}.HW_Outputs.GroupStarted OR ToggleBit_BCN[{idx + 2},1]; \n')
         f.write(f'//{bcn}.Beacon_Blue		:= (placeholder AND fbBlink_500ms.Pulse) OR ToggleBit_BCN[5,2]; \n')
-        f.write(f'{bcn}.Beacon_Yellow		:= (VFDError_{bcn[5:16]} AND fbBlink_500ms.Pulse) OR (IO_{bcn[5:16]}_K1.Status_Word.7 AND fbBlink_250ms.Pulse) OR EIP_Error_SG{bcn[8:11]} OR ToggleBit_BCN[5,3]; \n')
-        f.write(f'{bcn}.Beacon_Red			:=  NOT SafetyOutput.EmergencyCircuitOk.SG{bcn[8:11]} OR ToggleBit_BCN[5,4]; \n')
-        f.write(f'{bcn}.Beacon_Horn		:= (fbSG_{bcn[8:11]}.HW_Outputs.GroupIsStarting AND fbBlink_250ms.Pulse) OR ToggleBit_BCN[5,5]; \n')
+        f.write(f'{bcn}.Beacon_Yellow		:= (VFDError_{bcn[5:16]} AND fbBlink_500ms.Pulse) OR (IO_{bcn[5:16]}_K1.Status_Word.7 AND fbBlink_250ms.Pulse) OR EIP_Error_SG{bcn[8:11]} OR ToggleBit_BCN[{idx + 2},3]; \n')
+        f.write(f'{bcn}.Beacon_Red			:=  NOT SafetyOutput.EmergencyCircuitOk.SG{bcn[8:11]} OR ToggleBit_BCN[{idx + 2},4]; \n')
+        f.write(f'{bcn}.Beacon_Horn		:= (fbSG_{bcn[8:11]}.HW_Outputs.GroupIsStarting AND fbBlink_250ms.Pulse) OR ToggleBit_BCN[{idx + 2},5]; \n')
         f.write('\n \n \n')
 
     f.write('\n \n \n')

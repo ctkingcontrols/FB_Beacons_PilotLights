@@ -38,60 +38,60 @@ Mapping_Cabinet_IO.AE13_Panel.Outputs.BCN1_13_000_0000.Beacon_Horn		:= (SG_Start
 //BCN1_13_100_0040.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[2,2]; 
 //BCN1_13_100_0040.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[2,3]; 
 
-//BCN1_13_100_0055.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[2,2]; 
-//BCN1_13_100_0055.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[2,3]; 
+//BCN1_13_100_0055.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[3,2]; 
+//BCN1_13_100_0055.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[3,3]; 
 
-//BCN1_13_100_0070.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[2,2]; 
-//BCN1_13_100_0070.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[2,3]; 
+//BCN1_13_100_0070.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[4,2]; 
+//BCN1_13_100_0070.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[4,3]; 
 
-//BCN1_13_100_0085.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[2,2]; 
-//BCN1_13_100_0085.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[2,3]; 
+//BCN1_13_100_0085.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[5,2]; 
+//BCN1_13_100_0085.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[5,3]; 
 
-//BCN1_13_100_0100.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[2,2]; 
-//BCN1_13_100_0100.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[2,3]; 
+//BCN1_13_100_0100.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[6,2]; 
+//BCN1_13_100_0100.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[6,3]; 
 
-//BCN1_13_100_0115.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[2,2]; 
-//BCN1_13_100_0115.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[2,3]; 
+//BCN1_13_100_0115.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[7,2]; 
+//BCN1_13_100_0115.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[7,3]; 
 
-//BCN1_13_100_0130.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[2,2]; 
-//BCN1_13_100_0130.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[2,3]; 
+//BCN1_13_100_0130.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[8,2]; 
+//BCN1_13_100_0130.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[8,3]; 
 
-//BCN1_13_100_0145.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[2,2]; 
-//BCN1_13_100_0145.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[2,3]; 
+//BCN1_13_100_0145.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[9,2]; 
+//BCN1_13_100_0145.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[9,3]; 
 
-//BCN1_13_100_0160.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[2,2]; 
-//BCN1_13_100_0160.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[2,3]; 
+//BCN1_13_100_0160.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[10,2]; 
+//BCN1_13_100_0160.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[10,3]; 
 
-//BCN1_13_100_0170.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[2,2]; 
-//BCN1_13_100_0170.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[2,3]; 
+//BCN1_13_100_0170.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[11,2]; 
+//BCN1_13_100_0170.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[11,3]; 
 
 
  
  
 BCN1_13_000_0000.Beacon_Green		:= (fbSG_000.HW_Outputs.GroupIsStarting AND fbBlink_250ms.Pulse) OR 
-                                   fbSG_000.HW_Outputs.GroupStarted OR ToggleBit_BCN[5,1]; 
+                                   fbSG_000.HW_Outputs.GroupStarted OR ToggleBit_BCN[2,1]; 
 //BCN1_13_000_0000.Beacon_Blue		:= (placeholder AND fbBlink_500ms.Pulse) OR ToggleBit_BCN[5,2]; 
-BCN1_13_000_0000.Beacon_Yellow		:= (VFDError_13_000_0000 AND fbBlink_500ms.Pulse) OR (IO_13_000_0000_K1.Status_Word.7 AND fbBlink_250ms.Pulse) OR EIP_Error_SG000 OR ToggleBit_BCN[5,3]; 
-BCN1_13_000_0000.Beacon_Red			:=  NOT SafetyOutput.EmergencyCircuitOk.SG000 OR ToggleBit_BCN[5,4]; 
-BCN1_13_000_0000.Beacon_Horn		:= (fbSG_000.HW_Outputs.GroupIsStarting AND fbBlink_250ms.Pulse) OR ToggleBit_BCN[5,5]; 
+BCN1_13_000_0000.Beacon_Yellow		:= (VFDError_13_000_0000 AND fbBlink_500ms.Pulse) OR (IO_13_000_0000_K1.Status_Word.7 AND fbBlink_250ms.Pulse) OR EIP_Error_SG000 OR ToggleBit_BCN[2,3]; 
+BCN1_13_000_0000.Beacon_Red			:=  NOT SafetyOutput.EmergencyCircuitOk.SG000 OR ToggleBit_BCN[2,4]; 
+BCN1_13_000_0000.Beacon_Horn		:= (fbSG_000.HW_Outputs.GroupIsStarting AND fbBlink_250ms.Pulse) OR ToggleBit_BCN[2,5]; 
 
  
  
 BCN1_13_100_0185.Beacon_Green		:= (fbSG_100.HW_Outputs.GroupIsStarting AND fbBlink_250ms.Pulse) OR 
-                                   fbSG_100.HW_Outputs.GroupStarted OR ToggleBit_BCN[5,1]; 
+                                   fbSG_100.HW_Outputs.GroupStarted OR ToggleBit_BCN[3,1]; 
 //BCN1_13_100_0185.Beacon_Blue		:= (placeholder AND fbBlink_500ms.Pulse) OR ToggleBit_BCN[5,2]; 
-BCN1_13_100_0185.Beacon_Yellow		:= (VFDError_13_100_0185 AND fbBlink_500ms.Pulse) OR (IO_13_100_0185_K1.Status_Word.7 AND fbBlink_250ms.Pulse) OR EIP_Error_SG100 OR ToggleBit_BCN[5,3]; 
-BCN1_13_100_0185.Beacon_Red			:=  NOT SafetyOutput.EmergencyCircuitOk.SG100 OR ToggleBit_BCN[5,4]; 
-BCN1_13_100_0185.Beacon_Horn		:= (fbSG_100.HW_Outputs.GroupIsStarting AND fbBlink_250ms.Pulse) OR ToggleBit_BCN[5,5]; 
+BCN1_13_100_0185.Beacon_Yellow		:= (VFDError_13_100_0185 AND fbBlink_500ms.Pulse) OR (IO_13_100_0185_K1.Status_Word.7 AND fbBlink_250ms.Pulse) OR EIP_Error_SG100 OR ToggleBit_BCN[3,3]; 
+BCN1_13_100_0185.Beacon_Red			:=  NOT SafetyOutput.EmergencyCircuitOk.SG100 OR ToggleBit_BCN[3,4]; 
+BCN1_13_100_0185.Beacon_Horn		:= (fbSG_100.HW_Outputs.GroupIsStarting AND fbBlink_250ms.Pulse) OR ToggleBit_BCN[3,5]; 
 
  
  
 BCN1_13_100_0205.Beacon_Green		:= (fbSG_100.HW_Outputs.GroupIsStarting AND fbBlink_250ms.Pulse) OR 
-                                   fbSG_100.HW_Outputs.GroupStarted OR ToggleBit_BCN[5,1]; 
+                                   fbSG_100.HW_Outputs.GroupStarted OR ToggleBit_BCN[4,1]; 
 //BCN1_13_100_0205.Beacon_Blue		:= (placeholder AND fbBlink_500ms.Pulse) OR ToggleBit_BCN[5,2]; 
-BCN1_13_100_0205.Beacon_Yellow		:= (VFDError_13_100_0205 AND fbBlink_500ms.Pulse) OR (IO_13_100_0205_K1.Status_Word.7 AND fbBlink_250ms.Pulse) OR EIP_Error_SG100 OR ToggleBit_BCN[5,3]; 
-BCN1_13_100_0205.Beacon_Red			:=  NOT SafetyOutput.EmergencyCircuitOk.SG100 OR ToggleBit_BCN[5,4]; 
-BCN1_13_100_0205.Beacon_Horn		:= (fbSG_100.HW_Outputs.GroupIsStarting AND fbBlink_250ms.Pulse) OR ToggleBit_BCN[5,5]; 
+BCN1_13_100_0205.Beacon_Yellow		:= (VFDError_13_100_0205 AND fbBlink_500ms.Pulse) OR (IO_13_100_0205_K1.Status_Word.7 AND fbBlink_250ms.Pulse) OR EIP_Error_SG100 OR ToggleBit_BCN[4,3]; 
+BCN1_13_100_0205.Beacon_Red			:=  NOT SafetyOutput.EmergencyCircuitOk.SG100 OR ToggleBit_BCN[4,4]; 
+BCN1_13_100_0205.Beacon_Horn		:= (fbSG_100.HW_Outputs.GroupIsStarting AND fbBlink_250ms.Pulse) OR ToggleBit_BCN[4,5]; 
 
  
  
