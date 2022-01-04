@@ -170,7 +170,7 @@ with open('outputFB_Pilot_Beacon.txt', 'w') as f:
         if epc_dict[layoutNum][-4:] == '0000':
              f.write(f'Mapping_Cabinet_IO.AE{ae}_Panel.Outputs.{layoutNum}.PL_Green :=  SafetyOutput.EmergencyActivated.{epc_dict[layoutNum]}   AND SafetyOutput.EmergencyCircuitOk.AE{ae};    //{layoutNum} \n')
         else:
-            f.write(f'Mapping_Cabinet_IO.AE{ae}_Panel.Outputs.{layoutNum}.PL_Green :=  SafetyOutput.EmergencyActivated.{epc_dict[layoutNum]}   AND SafetyOutput.EmergencyCircuitOk.SG{epc_dict[layoutNum][8:12]};    //{layoutNum} \n')
+            f.write(f'Mapping_Cabinet_IO.AE{ae}_Panel.Outputs.{layoutNum}.PL_Green :=  SafetyOutput.EmergencyActivated.{epc_dict[layoutNum]}   AND SafetyOutput.EmergencyCircuitOk.SG{epc_dict[layoutNum][7:11]};    //{layoutNum} \n')
 
     f.write('\n \n \n')
 
