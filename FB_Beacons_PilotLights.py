@@ -114,6 +114,9 @@ with open('outputFB_Pilot_Beacon.txt', 'w') as f:
     f.write(f'AE{ae}_Panel.Outputs.System_Start_PL	:= (ControlPowerOn AND EmergencyCircuitOK_All AND fbBlink_100ms.Pulse AND NOT SG_Started_Any) OR \n')
     f.write(f'           (SG_Started_Any AND fbBlink_500ms.Pulse) OR SG_Started_All OR ToggleBit_PL[2]; \n')
     f.write(f'AE{ae}_Panel.Outputs.System_Estops_OK_PL	:= EmergencyCircuitOK_All OR ToggleBit_PL[3]; \n')
+    f.write(f'AE{ae}_Panel.Outputs.System_Reset_PL := SafetyOutput.EmergencyActivated.AE{ae} OR \n')
+    f.write(f'\t\t\t\t((SG_Error_Any OR SG_Safety_Error )\n')
+    f.write(f'\t\t\t\tAND fbBlink_500ms.Pulse OR ToggleBit_PBL[1]); \n')
 
     f.write('\n \n \n')
 

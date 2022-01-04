@@ -125,19 +125,19 @@ Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_112001_R.PL_Red :=  SafetyOutput.Emerg
  
  
 Mapping_Cabinet_IO.AE11_Panel.Outputs.BCN1_11_000_0000.Beacon_Green:=  SafetyOutput.EmergencyActivated.AE11; 
-Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111001.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_010_0015   AND SafetyOutput.EmergencyCircuitOk.SG010_;    //EPC_111001 
-Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111010_L.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_100_0060_L   AND SafetyOutput.EmergencyCircuitOk.SG100_;    //EPC_111010_L 
-Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111010_R.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_100_0060_R   AND SafetyOutput.EmergencyCircuitOk.SG100_;    //EPC_111010_R 
-Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111015_R.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_200_0010   AND SafetyOutput.EmergencyCircuitOk.SG200_;    //EPC_111015_R 
-Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111030_2.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_202_0020   AND SafetyOutput.EmergencyCircuitOk.SG202_;    //EPC_111030_2 
-Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111040_1.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_030_0015   AND SafetyOutput.EmergencyCircuitOk.SG030_;    //EPC_111040_1 
-Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111040_2.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_030_0030   AND SafetyOutput.EmergencyCircuitOk.SG030_;    //EPC_111040_2 
-Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111075_L.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_300_0045_L   AND SafetyOutput.EmergencyCircuitOk.SG300_;    //EPC_111075_L 
-Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111075_R.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_300_0045_R   AND SafetyOutput.EmergencyCircuitOk.SG300_;    //EPC_111075_R 
-Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111080_L.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_300_0085   AND SafetyOutput.EmergencyCircuitOk.SG300_;    //EPC_111080_L 
-Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111090_R.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_402_0010   AND SafetyOutput.EmergencyCircuitOk.SG402_;    //EPC_111090_R 
-Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_112001_L.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_600_0070_L   AND SafetyOutput.EmergencyCircuitOk.SG600_;    //EPC_112001_L 
-Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_112001_R.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_600_0070_R   AND SafetyOutput.EmergencyCircuitOk.SG600_;    //EPC_112001_R 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111001.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_010_0015   AND SafetyOutput.EmergencyCircuitOk.SG010;    //EPC_111001 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111010_L.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_100_0060_L   AND SafetyOutput.EmergencyCircuitOk.SG100;    //EPC_111010_L 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111010_R.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_100_0060_R   AND SafetyOutput.EmergencyCircuitOk.SG100;    //EPC_111010_R 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111015_R.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_200_0010   AND SafetyOutput.EmergencyCircuitOk.SG200;    //EPC_111015_R 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111030_2.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_202_0020   AND SafetyOutput.EmergencyCircuitOk.SG202;    //EPC_111030_2 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111040_1.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_030_0015   AND SafetyOutput.EmergencyCircuitOk.SG030;    //EPC_111040_1 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111040_2.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_030_0030   AND SafetyOutput.EmergencyCircuitOk.SG030;    //EPC_111040_2 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111075_L.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_300_0045_L   AND SafetyOutput.EmergencyCircuitOk.SG300;    //EPC_111075_L 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111075_R.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_300_0045_R   AND SafetyOutput.EmergencyCircuitOk.SG300;    //EPC_111075_R 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111080_L.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_300_0085   AND SafetyOutput.EmergencyCircuitOk.SG300;    //EPC_111080_L 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111090_R.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_402_0010   AND SafetyOutput.EmergencyCircuitOk.SG402;    //EPC_111090_R 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_112001_L.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_600_0070_L   AND SafetyOutput.EmergencyCircuitOk.SG600;    //EPC_112001_L 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_112001_R.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_600_0070_R   AND SafetyOutput.EmergencyCircuitOk.SG600;    //EPC_112001_R 
 
  
  
