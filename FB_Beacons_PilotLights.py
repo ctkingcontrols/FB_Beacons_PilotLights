@@ -1,134 +1,99 @@
 
 
 ## config var
+## config var
 epc_dict = {
-          #drawings name      #software name
-           'AE-12 Panel'  :     'ES_12_000_0000'  ,
-           'EPC-12-1100-L'  :     'EPC1_12_010_0035'  ,
-           'EPC_121135-L'  :     'EPC1_12_030_0040'  ,
-           'EPC_121135-R'  :     'EPC1_12_030_0030'  ,
-           'EPC_121110-L'  :     'EPC1_12_100_0075_L'  ,
-           'EPC_121110-R'  :     'EPC1_12_100_0075_R'  ,
-           'EPC_121115-L'  :     'EPC1_12_100_0085'  ,
-           'EPC_121125'  :     'EPC1_12_402_0020'  ,
-           'EPC_121170-R'  :     'EPC1_12_300_0085'  ,
-           'EPC_121180'  :     'EPC1_12_202_0020'  ,
-           'EPC_122015-L'  :     'EPC1_12_600_0067_L'  ,
-           'EPC_122015-R'  :     'EPC1_12_600_0067_R'
-                        }
-
-
-#pc_dict = {
-#          #drawings name      #software name
-# ' ES_12_000_0000	    '  :  'AE-12 Panel	'   ,
-# ' EPC1_12_010_0035	'  :  'EPC-12-1100-L '   ,
-# ' EPC1_12_030_0040	'  :  'EPC_121135-L  '   ,
-# ' EPC1_12_030_0030    '  :  'EPC_121135-R	'   ,
-# ' EPC1_12_100_0075_L  '  :  'EPC_121110-L  '   ,
-# ' EPC1_12_100_0075_R  '  :  'EPC_121110-R  '   ,
-# ' EPC1_12_100_0085	'  :  'EPC_121115-L	'   ,
-# ' EPC1_12_402_0020	'  :  'EPC_121125	'   ,
-# ' EPC1_12_300_0085	'  :  'EPC_121170-R	'   ,
-# ' EPC1_12_202_0020	'  :  'EPC_121180	'   ,
-# ' EPC1_12_600_0067_L  '  :  'EPC_122015-L  '   ,
-# ' EPC1_12_600_0067_R  '  :  'EPC_122015-R  '
-# }
-#
+           #drawings name      #software name
+'EPC_111001' :     'EPC_11_010_0015'   ,
+'EPC_111010_L' :   'EPC_11_100_0060_L' ,
+'EPC_111010_R' :   'EPC_11_100_0060_R' ,
+'EPC_111015_R' :   'EPC_11_200_0010'   ,
+'EPC_111030_2' :   'EPC_11_202_0020'   ,
+'EPC_111040_1' :   'EPC_11_030_0015'   ,
+'EPC_111040_2' :   'EPC_11_030_0030'   ,
+'EPC_111075_L' :   'EPC_11_300_0045_L' ,
+'EPC_111075_R' :   'EPC_11_300_0045_R' ,
+'EPC_111080_L' :   'EPC_11_300_0085'   ,
+'EPC_111090_R' :   'EPC_11_402_0010'   ,
+'EPC_112001_L' :   'EPC_11_600_0070_L' ,
+'EPC_112001_R' :   'EPC_11_600_0070_R' ,
+             }
 
 
 
 
 
-sg_List = ['010',
-'030',
-'100',
-'200',
-'201',
-'202',
-'203',
-'300',
-'400',
-'401',
-'402',
-'403',
-'600'
-]
 
 
 
-bcnBY_list = ['BCN1_12_300_0025',
-           'BCN1_12_300_0027',
-           'BCN1_12_300_0040',
-           'BCN1_12_100_0080',
-           'BCN1_12_300_0080',
-           'BCN1_12_600_0065',
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+sg_List = ['100',
+           '101',
+           '102',
+           '103',
+           '104',
+           '105',
+           '106',
+           '107',
+           '108',
+           '109',
+           '110',
+           '600',
+           '601',
+           '700',
+           '701'
+            ]
+bcnBY_list = ['BCN1_13_100_0040',
+           'BCN1_13_100_0055',
+           'BCN1_13_100_0070',
+           'BCN1_13_100_0085',
+           'BCN1_13_100_0100',
+           'BCN1_13_100_0115',
+           'BCN1_13_100_0130',
+           'BCN1_13_100_0145',
+           'BCN1_13_100_0160',
+           'BCN1_13_100_0170'
 
             ]
 
-bcnBYGR_list = [
+bcnBYGR_list = ['BCN1_13_000_0000',
+                'BCN1_13_100_0185',
+                'BCN1_13_100_0205',
+                'BCN1_13_601_0065'
+
                  ]
 
 
 pbl_dict = {
 
-'PBL1_12_000_0000' : 'safety',
-'PBL1_12_010_0035' : 'safety',
-'PBL1_12_030_0040' : 'safety',
-'PBL1_12_030_0030' : 'safety',
-'PBL1_12_100_0075_L' : 'safety',
-'PBL1_12_100_0075_R' : 'safety',
-'PBL1_12_100_0085' : 'safety',
-'PBL1_12_402_0020' : 'safety',
-'PBL1_12_300_0085' : 'safety',
-'PBL1_12_202_0020' : 'safety',
-'PBL1_12_600_0067_L' : 'safety',
-'PBL1_12_600_0067_R' : 'safety',
-'PBL1_12_600_0055'     : 'merge',
-'PBL1_12_400_0020'     : 'transfer',
-'PBL1_12_400_0035'     : 'dont know',
-'PBL1_12_400_0055'     : 'dont know',
-'PBL1_12_400_0070'     : 'transfer',
-'PBL1_12_401_0010'     : 'transfer',
-'PBL1_12_401_0020'     : 'transfer',
-'PBL1_12_402_0010'     : 'transfer',
-'PBL1_12_402_0020'     : 'transfer',
-'PBL1_12_403_0010'     : 'transfer',
-'PBL1_12_403_0020'     : 'transfer',
-'PBL1_12_200_0020'     : 'transfer',
-'PBL1_12_200_0035'     : 'dont know',
-'PBL1_12_200_0055'     : 'dont know',
-'PBL1_12_200_0070'     : 'transfer',
-'PBL1_12_201_0010'     : 'transfer',
-'PBL1_12_201_0020'     : 'transfer',
-'PBL1_12_202_0010'     : 'transfer',
-'PBL1_12_202_0020'     : 'transfer',
-'PBL1_12_203_0010'     : 'transfer',
-'PBL1_12_203_0020'     : 'transfer',
-'PBL1_12_300_0045'	   : 'dont know',
-'PBL2_12_300_0045'	   : 'dont know',
-'PBL1_12_300_0050'	   : 'dont know',
-'PBL1_12_300_0075'	   : 'dont know',
-'PBL2_12_300_0075'	   : 'dont know',
-'PBL1_12_100_0045'	   : 'dont know',
-'PBL1_12_100_0055'     : 'dont know',
-'PBL2_12_100_0055'     : 'dont know',
-'PBL1_12_100_0075'     : 'dont know',
-'PBL2_12_100_0075'     : 'dont know',
-'PBL1_12_100_0090'     : 'dont know',
-'PBL1_12_400_0005'    : 'dont know',
-'PBL1_12_400_0010'    : 'dont know',
-'PBL1_12_400_0015'    : 'dont know',
-'PBL1_12_200_0015'    : 'dont know',
-'PBL1_12_600_0055'     : 'dont know',
-'PBL1_12_600_0060'     : 'dont know'
-
-
+'PBL1_11_010_0015'   : 'safety',
+'PBL1_11_100_0060'   : 'safety',
+'PBL2_11_100_0060'   : 'safety',
+'PBL1_11_200_0010'   : 'safety',
+'PBL1_11_202_0020'   : 'safety',
+'PBL1_11_030_0015'   : 'safety',
+'PBL1_11_030_0030'   : 'safety',
+'PBL1_11_300_0045'   : 'safety',
+'PBL2_11_300_0045'   : 'safety',
+'PBL1_11_300_0085'   : 'safety',
+'PBL1_11_402_0010'   : 'safety'
 
 }
 
-ae = 12
-
+ae = 11
 
 # end of config variables
 ####################################
@@ -195,7 +160,7 @@ with open('outputFB_Pilot_Beacon.txt', 'w') as f:
 
     f.write(f'Mapping_Cabinet_IO.AE{ae}_Panel.Outputs.BCN1_{ae}_000_0000.Beacon_Red:=  SafetyOutput.EmergencyActivated.AE{ae}  AND fbBlink_500ms.Pulse; \n')
     for layoutNum in epc_dict.keys():
-        f.write(f'Mapping_Cabinet_IO.AE{ae}_Panel.Outputs.{epc_dict[layoutNum]}.PL_Red :=  SafetyOutput.EmergencyActivated.{epc_dict[layoutNum]}  AND fbBlink_500ms.Pulse; //{layoutNum} \n')
+        f.write(f'Mapping_Cabinet_IO.AE{ae}_Panel.Outputs.{layoutNum}.PL_Red :=  SafetyOutput.EmergencyActivated.{epc_dict[layoutNum]}  AND fbBlink_500ms.Pulse; //{layoutNum} \n')
 
     f.write('\n \n \n')
 
@@ -203,9 +168,9 @@ with open('outputFB_Pilot_Beacon.txt', 'w') as f:
     f.write(f'Mapping_Cabinet_IO.AE{ae}_Panel.Outputs.BCN1_{ae}_000_0000.Beacon_Green:=  SafetyOutput.EmergencyActivated.AE{ae}; \n')
     for layoutNum in epc_dict.keys():
         if epc_dict[layoutNum][-4:] == '0000':
-             f.write(f'Mapping_Cabinet_IO.AE{ae}_Panel.Outputs.{epc_dict[layoutNum]}.PL_Green :=  SafetyOutput.EmergencyActivated.{epc_dict[layoutNum]}   AND SafetyOutput.EmergencyCircuitOk.AE{ae};    //{layoutNum} \n')
+             f.write(f'Mapping_Cabinet_IO.AE{ae}_Panel.Outputs.{layoutNum}.PL_Green :=  SafetyOutput.EmergencyActivated.{epc_dict[layoutNum]}   AND SafetyOutput.EmergencyCircuitOk.AE{ae};    //{layoutNum} \n')
         else:
-            f.write(f'Mapping_Cabinet_IO.AE{ae}_Panel.Outputs.{epc_dict[layoutNum]}.PL_Green :=  SafetyOutput.EmergencyActivated.{epc_dict[layoutNum]}   AND SafetyOutput.EmergencyCircuitOk.SG{epc_dict[layoutNum][8:11]};    //{layoutNum} \n')
+            f.write(f'Mapping_Cabinet_IO.AE{ae}_Panel.Outputs.{layoutNum}.PL_Green :=  SafetyOutput.EmergencyActivated.{epc_dict[layoutNum]}   AND SafetyOutput.EmergencyCircuitOk.SG{epc_dict[layoutNum][8:12]};    //{layoutNum} \n')
 
     f.write('\n \n \n')
 
@@ -239,6 +204,11 @@ with open('outputFB_Pilot_Beacon.txt', 'w') as f:
         elif pbl_dict[pbl].lower() == 'transfer':
 
             f.write(f'{pbl}.Light_Yellow	:= (TransferError{pbl[4:]} AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[{toggleBit}]; \n')
+            toggleBit += 1
+
+        elif pbl_dict[pbl].lower() == 'placeholder':
+
+            f.write(f'//{pbl}.Light_Yellow	:= (PlaceholderAlarm{pbl[4:]} AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[{toggleBit}]; \n')
             toggleBit += 1
 
 

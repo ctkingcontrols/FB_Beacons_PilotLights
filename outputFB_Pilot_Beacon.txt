@@ -1,123 +1,160 @@
-EmergencyCircuitOK_All := SafetyOutput.EmergencyCircuitOk.AE12 
-                AND SafetyOutput.EmergencyCircuitOk.SG010 
-                 AND SafetyOutput.EmergencyCircuitOk.SG030 
-                 AND SafetyOutput.EmergencyCircuitOk.SG100 
-                 AND SafetyOutput.EmergencyCircuitOk.SG200 
-                 AND SafetyOutput.EmergencyCircuitOk.SG201 
-                 AND SafetyOutput.EmergencyCircuitOk.SG202 
-                 AND SafetyOutput.EmergencyCircuitOk.SG203 
-                 AND SafetyOutput.EmergencyCircuitOk.SG300 
-                 AND SafetyOutput.EmergencyCircuitOk.SG400 
-                 AND SafetyOutput.EmergencyCircuitOk.SG401 
-                 AND SafetyOutput.EmergencyCircuitOk.SG402 
-                 AND SafetyOutput.EmergencyCircuitOk.SG403 
-                 AND SafetyOutput.EmergencyCircuitOk.SG600; 
+EmergencyCircuitOK_All := SafetyOutput.EmergencyCircuitOk.AE11 
+                AND SafetyOutput.EmergencyCircuitOk.SG100 
+                 AND SafetyOutput.EmergencyCircuitOk.SG101 
+                 AND SafetyOutput.EmergencyCircuitOk.SG102 
+                 AND SafetyOutput.EmergencyCircuitOk.SG103 
+                 AND SafetyOutput.EmergencyCircuitOk.SG104 
+                 AND SafetyOutput.EmergencyCircuitOk.SG105 
+                 AND SafetyOutput.EmergencyCircuitOk.SG106 
+                 AND SafetyOutput.EmergencyCircuitOk.SG107 
+                 AND SafetyOutput.EmergencyCircuitOk.SG108 
+                 AND SafetyOutput.EmergencyCircuitOk.SG109 
+                 AND SafetyOutput.EmergencyCircuitOk.SG110 
+                 AND SafetyOutput.EmergencyCircuitOk.SG600 
+                 AND SafetyOutput.EmergencyCircuitOk.SG601 
+                 AND SafetyOutput.EmergencyCircuitOk.SG700 
+                 AND SafetyOutput.EmergencyCircuitOk.SG701; 
  
  
  
- AE12_Panel.Outputs.Control_Power_On_PL	:= (PowerOnSequence AND fbBlink_250ms.Pulse) OR ControlPowerOn OR ToggleBit_PL[1]; 
-AE12_Panel.Outputs.System_Start_PL	:= (ControlPowerOn AND EmergencyCircuitOK_All AND fbBlink_100ms.Pulse AND NOT SG_Started_Any) OR 
+ AE11_Panel.Outputs.Control_Power_On_PL	:= (PowerOnSequence AND fbBlink_250ms.Pulse) OR ControlPowerOn OR ToggleBit_PL[1]; 
+AE11_Panel.Outputs.System_Start_PL	:= (ControlPowerOn AND EmergencyCircuitOK_All AND fbBlink_100ms.Pulse AND NOT SG_Started_Any) OR 
            (SG_Started_Any AND fbBlink_500ms.Pulse) OR SG_Started_All OR ToggleBit_PL[2]; 
-AE12_Panel.Outputs.System_Estops_OK_PL	:= EmergencyCircuitOK_All OR ToggleBit_PL[3]; 
+AE11_Panel.Outputs.System_Estops_OK_PL	:= EmergencyCircuitOK_All OR ToggleBit_PL[3]; 
 
  
  
-Mapping_Cabinet_IO.AE12_Panel.Outputs.BCN1_12_000_0000.Beacon_Green		:= (SG_Starting_Any AND fbBlink_100ms.Pulse) OR (SG_Started_Any AND fbBlink_500ms.Pulse) OR SG_Started_All OR ToggleBit_BCN[1,1];
-Mapping_Cabinet_IO.AE12_Panel.Outputs.BCN1_12_000_0000.Beacon_Blue		:= (SG_Full_Any AND fbBlink_500ms.Pulse) OR ToggleBit_BCN[1,2]; 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.BCN1_12_000_0000.Beacon_Yellow	:= ToggleBit_BCN[1,3];(* ((SG_Error_Any OR SG_Safety_Error  OR ScannerError_11_200_0040 OR 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.BCN1_11_000_0000.Beacon_Green		:= (SG_Starting_Any AND fbBlink_100ms.Pulse) OR (SG_Started_Any AND fbBlink_500ms.Pulse) OR SG_Started_All OR ToggleBit_BCN[1,1];
+Mapping_Cabinet_IO.AE11_Panel.Outputs.BCN1_11_000_0000.Beacon_Blue		:= (SG_Full_Any AND fbBlink_500ms.Pulse) OR ToggleBit_BCN[1,2]; 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.BCN1_11_000_0000.Beacon_Yellow	:= ToggleBit_BCN[1,3];(* ((SG_Error_Any OR SG_Safety_Error  OR ScannerError_11_200_0040 OR 
                ScannerError_11_200_0125) AND fbBlink_500ms.Pulse) OR 
                EIP_SW1_Error OR EIP_SW2_Error OR *) 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.BCN1_12_000_0000.Beacon_Red		:=  (NOT EmergencyCircuitOK_All AND NOT SafetyOutput.EmergencyActivated.AE12) OR 
-                                  (SafetyOutput.EmergencyActivated.AE12 AND  fbBlink_500ms.Pulse) OR  ToggleBit_BCN[1,4]; 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.BCN1_12_000_0000.Beacon_Horn		:= (SG_Starting_Any AND fbBlink_250ms.Pulse) OR ToggleBit_BCN[1,5]; 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.BCN1_11_000_0000.Beacon_Red		:=  (NOT EmergencyCircuitOK_All AND NOT SafetyOutput.EmergencyActivated.AE11) OR 
+                                  (SafetyOutput.EmergencyActivated.AE11 AND  fbBlink_500ms.Pulse) OR  ToggleBit_BCN[1,4]; 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.BCN1_11_000_0000.Beacon_Horn		:= (SG_Starting_Any AND fbBlink_250ms.Pulse) OR ToggleBit_BCN[1,5]; 
 
  
  
-//BCN1_12_300_0025.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[2,2]; 
-//BCN1_12_300_0025.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[2,3]; 
+//BCN1_13_100_0040.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[2,2]; 
+//BCN1_13_100_0040.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[2,3]; 
 
-//BCN1_12_300_0027.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[3,2]; 
-//BCN1_12_300_0027.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[3,3]; 
+//BCN1_13_100_0055.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[3,2]; 
+//BCN1_13_100_0055.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[3,3]; 
 
-//BCN1_12_300_0040.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[4,2]; 
-//BCN1_12_300_0040.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[4,3]; 
+//BCN1_13_100_0070.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[4,2]; 
+//BCN1_13_100_0070.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[4,3]; 
 
-//BCN1_12_100_0080.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[5,2]; 
-//BCN1_12_100_0080.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[5,3]; 
+//BCN1_13_100_0085.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[5,2]; 
+//BCN1_13_100_0085.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[5,3]; 
 
-//BCN1_12_300_0080.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[6,2]; 
-//BCN1_12_300_0080.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[6,3]; 
+//BCN1_13_100_0100.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[6,2]; 
+//BCN1_13_100_0100.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[6,3]; 
 
-//BCN1_12_600_0065.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[7,2]; 
-//BCN1_12_600_0065.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[7,3]; 
+//BCN1_13_100_0115.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[7,2]; 
+//BCN1_13_100_0115.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[7,3]; 
 
+//BCN1_13_100_0130.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[8,2]; 
+//BCN1_13_100_0130.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[8,3]; 
+
+//BCN1_13_100_0145.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[9,2]; 
+//BCN1_13_100_0145.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[9,3]; 
+
+//BCN1_13_100_0160.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[10,2]; 
+//BCN1_13_100_0160.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[10,3]; 
+
+//BCN1_13_100_0170.Beacon_Blue		:=  (DownstreamFull_13_102_0005 AND fbBlink_500ms.Pulse) OR  ToggleBit_BCN[11,2]; 
+//BCN1_13_100_0170.Beacon_Yellow		:=  (DivertError_13_100_0060 AND fbBlink_500ms.Pulse)  OR EIP_Error_SG102 OR ToggleBit_BCN[11,3]; 
+
+
+ 
+ 
+BCN1_13_000_0000.Beacon_Green		:= (fbSG_000.HW_Outputs.GroupIsStarting AND fbBlink_250ms.Pulse) OR 
+                                   fbSG_000.HW_Outputs.GroupStarted OR ToggleBit_BCN[2,1]; 
+//BCN1_13_000_0000.Beacon_Blue		:= (placeholder AND fbBlink_500ms.Pulse) OR ToggleBit_BCN[5,2]; 
+BCN1_13_000_0000.Beacon_Yellow		:= (VFDError_13_000_0000 AND fbBlink_500ms.Pulse) OR (IO_13_000_0000_K1.Status_Word.7 AND fbBlink_250ms.Pulse) OR EIP_Error_SG000 OR ToggleBit_BCN[2,3]; 
+BCN1_13_000_0000.Beacon_Red			:=  NOT SafetyOutput.EmergencyCircuitOk.SG000 OR ToggleBit_BCN[2,4]; 
+BCN1_13_000_0000.Beacon_Horn		:= (fbSG_000.HW_Outputs.GroupIsStarting AND fbBlink_250ms.Pulse) OR ToggleBit_BCN[2,5]; 
+
+ 
+ 
+BCN1_13_100_0185.Beacon_Green		:= (fbSG_100.HW_Outputs.GroupIsStarting AND fbBlink_250ms.Pulse) OR 
+                                   fbSG_100.HW_Outputs.GroupStarted OR ToggleBit_BCN[3,1]; 
+//BCN1_13_100_0185.Beacon_Blue		:= (placeholder AND fbBlink_500ms.Pulse) OR ToggleBit_BCN[5,2]; 
+BCN1_13_100_0185.Beacon_Yellow		:= (VFDError_13_100_0185 AND fbBlink_500ms.Pulse) OR (IO_13_100_0185_K1.Status_Word.7 AND fbBlink_250ms.Pulse) OR EIP_Error_SG100 OR ToggleBit_BCN[3,3]; 
+BCN1_13_100_0185.Beacon_Red			:=  NOT SafetyOutput.EmergencyCircuitOk.SG100 OR ToggleBit_BCN[3,4]; 
+BCN1_13_100_0185.Beacon_Horn		:= (fbSG_100.HW_Outputs.GroupIsStarting AND fbBlink_250ms.Pulse) OR ToggleBit_BCN[3,5]; 
+
+ 
+ 
+BCN1_13_100_0205.Beacon_Green		:= (fbSG_100.HW_Outputs.GroupIsStarting AND fbBlink_250ms.Pulse) OR 
+                                   fbSG_100.HW_Outputs.GroupStarted OR ToggleBit_BCN[4,1]; 
+//BCN1_13_100_0205.Beacon_Blue		:= (placeholder AND fbBlink_500ms.Pulse) OR ToggleBit_BCN[5,2]; 
+BCN1_13_100_0205.Beacon_Yellow		:= (VFDError_13_100_0205 AND fbBlink_500ms.Pulse) OR (IO_13_100_0205_K1.Status_Word.7 AND fbBlink_250ms.Pulse) OR EIP_Error_SG100 OR ToggleBit_BCN[4,3]; 
+BCN1_13_100_0205.Beacon_Red			:=  NOT SafetyOutput.EmergencyCircuitOk.SG100 OR ToggleBit_BCN[4,4]; 
+BCN1_13_100_0205.Beacon_Horn		:= (fbSG_100.HW_Outputs.GroupIsStarting AND fbBlink_250ms.Pulse) OR ToggleBit_BCN[4,5]; 
+
+ 
+ 
+BCN1_13_601_0065.Beacon_Green		:= (fbSG_601.HW_Outputs.GroupIsStarting AND fbBlink_250ms.Pulse) OR 
+                                   fbSG_601.HW_Outputs.GroupStarted OR ToggleBit_BCN[5,1]; 
+//BCN1_13_601_0065.Beacon_Blue		:= (placeholder AND fbBlink_500ms.Pulse) OR ToggleBit_BCN[5,2]; 
+BCN1_13_601_0065.Beacon_Yellow		:= (VFDError_13_601_0065 AND fbBlink_500ms.Pulse) OR (IO_13_601_0065_K1.Status_Word.7 AND fbBlink_250ms.Pulse) OR EIP_Error_SG601 OR ToggleBit_BCN[5,3]; 
+BCN1_13_601_0065.Beacon_Red			:=  NOT SafetyOutput.EmergencyCircuitOk.SG601 OR ToggleBit_BCN[5,4]; 
+BCN1_13_601_0065.Beacon_Horn		:= (fbSG_601.HW_Outputs.GroupIsStarting AND fbBlink_250ms.Pulse) OR ToggleBit_BCN[5,5]; 
 
  
  
 
  
  
-Mapping_Cabinet_IO.AE12_Panel.Outputs.BCN1_12_000_0000.Beacon_Red:=  SafetyOutput.EmergencyActivated.AE12  AND fbBlink_500ms.Pulse; 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.ES_12_000_0000.PL_Red :=  SafetyOutput.EmergencyActivated.ES_12_000_0000  AND fbBlink_500ms.Pulse; //AE-12 Panel 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_010_0035.PL_Red :=  SafetyOutput.EmergencyActivated.EPC1_12_010_0035  AND fbBlink_500ms.Pulse; //EPC-12-1100-L 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_030_0040.PL_Red :=  SafetyOutput.EmergencyActivated.EPC1_12_030_0040  AND fbBlink_500ms.Pulse; //EPC_121135-L 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_030_0030.PL_Red :=  SafetyOutput.EmergencyActivated.EPC1_12_030_0030  AND fbBlink_500ms.Pulse; //EPC_121135-R 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_100_0075_L.PL_Red :=  SafetyOutput.EmergencyActivated.EPC1_12_100_0075_L  AND fbBlink_500ms.Pulse; //EPC_121110-L 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_100_0075_R.PL_Red :=  SafetyOutput.EmergencyActivated.EPC1_12_100_0075_R  AND fbBlink_500ms.Pulse; //EPC_121110-R 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_100_0085.PL_Red :=  SafetyOutput.EmergencyActivated.EPC1_12_100_0085  AND fbBlink_500ms.Pulse; //EPC_121115-L 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_402_0020.PL_Red :=  SafetyOutput.EmergencyActivated.EPC1_12_402_0020  AND fbBlink_500ms.Pulse; //EPC_121125 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_300_0085.PL_Red :=  SafetyOutput.EmergencyActivated.EPC1_12_300_0085  AND fbBlink_500ms.Pulse; //EPC_121170-R 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_202_0020.PL_Red :=  SafetyOutput.EmergencyActivated.EPC1_12_202_0020  AND fbBlink_500ms.Pulse; //EPC_121180 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_600_0067_L.PL_Red :=  SafetyOutput.EmergencyActivated.EPC1_12_600_0067_L  AND fbBlink_500ms.Pulse; //EPC_122015-L 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_600_0067_R.PL_Red :=  SafetyOutput.EmergencyActivated.EPC1_12_600_0067_R  AND fbBlink_500ms.Pulse; //EPC_122015-R 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.BCN1_11_000_0000.Beacon_Red:=  SafetyOutput.EmergencyActivated.AE11  AND fbBlink_500ms.Pulse; 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111001.PL_Red :=  SafetyOutput.EmergencyActivated.EPC_11_010_0015  AND fbBlink_500ms.Pulse; //EPC_111001 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111010_L.PL_Red :=  SafetyOutput.EmergencyActivated.EPC_11_100_0060_L  AND fbBlink_500ms.Pulse; //EPC_111010_L 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111010_R.PL_Red :=  SafetyOutput.EmergencyActivated.EPC_11_100_0060_R  AND fbBlink_500ms.Pulse; //EPC_111010_R 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111015_R.PL_Red :=  SafetyOutput.EmergencyActivated.EPC_11_200_0010  AND fbBlink_500ms.Pulse; //EPC_111015_R 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111030_2.PL_Red :=  SafetyOutput.EmergencyActivated.EPC_11_202_0020  AND fbBlink_500ms.Pulse; //EPC_111030_2 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111040_1.PL_Red :=  SafetyOutput.EmergencyActivated.EPC_11_030_0015  AND fbBlink_500ms.Pulse; //EPC_111040_1 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111040_2.PL_Red :=  SafetyOutput.EmergencyActivated.EPC_11_030_0030  AND fbBlink_500ms.Pulse; //EPC_111040_2 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111075_L.PL_Red :=  SafetyOutput.EmergencyActivated.EPC_11_300_0045_L  AND fbBlink_500ms.Pulse; //EPC_111075_L 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111075_R.PL_Red :=  SafetyOutput.EmergencyActivated.EPC_11_300_0045_R  AND fbBlink_500ms.Pulse; //EPC_111075_R 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111080_L.PL_Red :=  SafetyOutput.EmergencyActivated.EPC_11_300_0085  AND fbBlink_500ms.Pulse; //EPC_111080_L 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111090_R.PL_Red :=  SafetyOutput.EmergencyActivated.EPC_11_402_0010  AND fbBlink_500ms.Pulse; //EPC_111090_R 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_112001_L.PL_Red :=  SafetyOutput.EmergencyActivated.EPC_11_600_0070_L  AND fbBlink_500ms.Pulse; //EPC_112001_L 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_112001_R.PL_Red :=  SafetyOutput.EmergencyActivated.EPC_11_600_0070_R  AND fbBlink_500ms.Pulse; //EPC_112001_R 
 
  
  
-Mapping_Cabinet_IO.AE12_Panel.Outputs.BCN1_12_000_0000.Beacon_Green:=  SafetyOutput.EmergencyActivated.AE12; 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.ES_12_000_0000.PL_Green :=  SafetyOutput.EmergencyActivated.ES_12_000_0000   AND SafetyOutput.EmergencyCircuitOk.AE12;    //AE-12 Panel 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_010_0035.PL_Green :=  SafetyOutput.EmergencyActivated.EPC1_12_010_0035   AND SafetyOutput.EmergencyCircuitOk.SG010;    //EPC-12-1100-L 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_030_0040.PL_Green :=  SafetyOutput.EmergencyActivated.EPC1_12_030_0040   AND SafetyOutput.EmergencyCircuitOk.SG030;    //EPC_121135-L 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_030_0030.PL_Green :=  SafetyOutput.EmergencyActivated.EPC1_12_030_0030   AND SafetyOutput.EmergencyCircuitOk.SG030;    //EPC_121135-R 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_100_0075_L.PL_Green :=  SafetyOutput.EmergencyActivated.EPC1_12_100_0075_L   AND SafetyOutput.EmergencyCircuitOk.SG100;    //EPC_121110-L 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_100_0075_R.PL_Green :=  SafetyOutput.EmergencyActivated.EPC1_12_100_0075_R   AND SafetyOutput.EmergencyCircuitOk.SG100;    //EPC_121110-R 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_100_0085.PL_Green :=  SafetyOutput.EmergencyActivated.EPC1_12_100_0085   AND SafetyOutput.EmergencyCircuitOk.SG100;    //EPC_121115-L 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_402_0020.PL_Green :=  SafetyOutput.EmergencyActivated.EPC1_12_402_0020   AND SafetyOutput.EmergencyCircuitOk.SG402;    //EPC_121125 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_300_0085.PL_Green :=  SafetyOutput.EmergencyActivated.EPC1_12_300_0085   AND SafetyOutput.EmergencyCircuitOk.SG300;    //EPC_121170-R 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_202_0020.PL_Green :=  SafetyOutput.EmergencyActivated.EPC1_12_202_0020   AND SafetyOutput.EmergencyCircuitOk.SG202;    //EPC_121180 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_600_0067_L.PL_Green :=  SafetyOutput.EmergencyActivated.EPC1_12_600_0067_L   AND SafetyOutput.EmergencyCircuitOk.SG600;    //EPC_122015-L 
-Mapping_Cabinet_IO.AE12_Panel.Outputs.EPC1_12_600_0067_R.PL_Green :=  SafetyOutput.EmergencyActivated.EPC1_12_600_0067_R   AND SafetyOutput.EmergencyCircuitOk.SG600;    //EPC_122015-R 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.BCN1_11_000_0000.Beacon_Green:=  SafetyOutput.EmergencyActivated.AE11; 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111001.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_010_0015   AND SafetyOutput.EmergencyCircuitOk.SG10_;    //EPC_111001 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111010_L.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_100_0060_L   AND SafetyOutput.EmergencyCircuitOk.SG00_;    //EPC_111010_L 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111010_R.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_100_0060_R   AND SafetyOutput.EmergencyCircuitOk.SG00_;    //EPC_111010_R 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111015_R.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_200_0010   AND SafetyOutput.EmergencyCircuitOk.SG00_;    //EPC_111015_R 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111030_2.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_202_0020   AND SafetyOutput.EmergencyCircuitOk.SG02_;    //EPC_111030_2 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111040_1.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_030_0015   AND SafetyOutput.EmergencyCircuitOk.SG30_;    //EPC_111040_1 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111040_2.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_030_0030   AND SafetyOutput.EmergencyCircuitOk.SG30_;    //EPC_111040_2 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111075_L.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_300_0045_L   AND SafetyOutput.EmergencyCircuitOk.SG00_;    //EPC_111075_L 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111075_R.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_300_0045_R   AND SafetyOutput.EmergencyCircuitOk.SG00_;    //EPC_111075_R 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111080_L.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_300_0085   AND SafetyOutput.EmergencyCircuitOk.SG00_;    //EPC_111080_L 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_111090_R.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_402_0010   AND SafetyOutput.EmergencyCircuitOk.SG02_;    //EPC_111090_R 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_112001_L.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_600_0070_L   AND SafetyOutput.EmergencyCircuitOk.SG00_;    //EPC_112001_L 
+Mapping_Cabinet_IO.AE11_Panel.Outputs.EPC_112001_R.PL_Green :=  SafetyOutput.EmergencyActivated.EPC_11_600_0070_R   AND SafetyOutput.EmergencyCircuitOk.SG00_;    //EPC_112001_R 
 
  
  
-PBL1_12_000_0000.Light_Yellow := SafetyOutput.EmergencyActivated.AE12 OR 
-                ((SG_Error_Any OR SG_Safety_Error OR SafetyOutput.ResetRequest.PBL1_12_000_0000)
+PBL1_11_000_0000.Light_Yellow := SafetyOutput.EmergencyActivated.AE11 OR 
+                ((SG_Error_Any OR SG_Safety_Error OR SafetyOutput.ResetRequest.PBL1_11_000_0000)
                 AND fbBlink_500ms.Pulse OR ToggleBit_PBL[1]); 
 
  
  
-PBL1_12_000_0000.Light_Yellow	:= SafetyOutput.EmergencyActivated.AE12 OR (SafetyOutput.ResetRequest.PBL1_12_000_0000 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[2]; 
-PBL1_12_010_0035.Light_Yellow	:= SafetyOutput.EmergencyActivated.EPC1_12_010_0035 OR (SafetyOutput.ResetRequest.PBL1_12_010_0035 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[3]; 
-PBL1_12_030_0040.Light_Yellow	:= SafetyOutput.EmergencyActivated.EPC1_12_030_0040 OR (SafetyOutput.ResetRequest.PBL1_12_030_0040 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[4]; 
-PBL1_12_030_0030.Light_Yellow	:= SafetyOutput.EmergencyActivated.EPC1_12_030_0030 OR (SafetyOutput.ResetRequest.PBL1_12_030_0030 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[5]; 
-PBL1_12_100_0075_L.Light_Yellow	:= SafetyOutput.EmergencyActivated.EPC1_12_100_0075_L OR (SafetyOutput.ResetRequest.PBL1_12_100_0075_L AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[6]; 
-PBL1_12_100_0075_R.Light_Yellow	:= SafetyOutput.EmergencyActivated.EPC1_12_100_0075_R OR (SafetyOutput.ResetRequest.PBL1_12_100_0075_R AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[7]; 
-PBL1_12_100_0085.Light_Yellow	:= SafetyOutput.EmergencyActivated.EPC1_12_100_0085 OR (SafetyOutput.ResetRequest.PBL1_12_100_0085 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[8]; 
-PBL1_12_402_0020.Light_Yellow	:= (TransferError_12_402_0020 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[9]; 
-PBL1_12_300_0085.Light_Yellow	:= SafetyOutput.EmergencyActivated.EPC1_12_300_0085 OR (SafetyOutput.ResetRequest.PBL1_12_300_0085 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[10]; 
-PBL1_12_202_0020.Light_Yellow	:= (TransferError_12_202_0020 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[11]; 
-PBL1_12_600_0067_L.Light_Yellow	:= SafetyOutput.EmergencyActivated.EPC1_12_600_0067_L OR (SafetyOutput.ResetRequest.PBL1_12_600_0067_L AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[12]; 
-PBL1_12_600_0067_R.Light_Yellow	:= SafetyOutput.EmergencyActivated.EPC1_12_600_0067_R OR (SafetyOutput.ResetRequest.PBL1_12_600_0067_R AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[13]; 
-PBL1_12_400_0020.Light_Yellow	:= (TransferError_12_400_0020 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[14]; 
-PBL1_12_400_0070.Light_Yellow	:= (TransferError_12_400_0070 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[15]; 
-PBL1_12_401_0010.Light_Yellow	:= (TransferError_12_401_0010 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[16]; 
-PBL1_12_401_0020.Light_Yellow	:= (TransferError_12_401_0020 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[17]; 
-PBL1_12_402_0010.Light_Yellow	:= (TransferError_12_402_0010 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[18]; 
-PBL1_12_403_0010.Light_Yellow	:= (TransferError_12_403_0010 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[19]; 
-PBL1_12_403_0020.Light_Yellow	:= (TransferError_12_403_0020 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[20]; 
-PBL1_12_200_0020.Light_Yellow	:= (TransferError_12_200_0020 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[21]; 
-PBL1_12_200_0070.Light_Yellow	:= (TransferError_12_200_0070 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[22]; 
-PBL1_12_201_0010.Light_Yellow	:= (TransferError_12_201_0010 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[23]; 
-PBL1_12_201_0020.Light_Yellow	:= (TransferError_12_201_0020 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[24]; 
-PBL1_12_202_0010.Light_Yellow	:= (TransferError_12_202_0010 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[25]; 
-PBL1_12_203_0010.Light_Yellow	:= (TransferError_12_203_0010 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[26]; 
-PBL1_12_203_0020.Light_Yellow	:= (TransferError_12_203_0020 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[27]; 
+PBL1_11_010_0015.Light_Yellow	:= SafetyOutput.EmergencyActivated.EPC1_11_010_0015 OR (SafetyOutput.ResetRequest.PBL1_11_010_0015 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[2]; 
+PBL1_11_100_0060.Light_Yellow	:= SafetyOutput.EmergencyActivated.EPC1_11_100_0060 OR (SafetyOutput.ResetRequest.PBL1_11_100_0060 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[3]; 
+PBL2_11_100_0060.Light_Yellow	:= SafetyOutput.EmergencyActivated.EPC1_11_100_0060 OR (SafetyOutput.ResetRequest.PBL2_11_100_0060 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[4]; 
+PBL1_11_200_0010.Light_Yellow	:= SafetyOutput.EmergencyActivated.EPC1_11_200_0010 OR (SafetyOutput.ResetRequest.PBL1_11_200_0010 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[5]; 
+PBL1_11_202_0020.Light_Yellow	:= SafetyOutput.EmergencyActivated.EPC1_11_202_0020 OR (SafetyOutput.ResetRequest.PBL1_11_202_0020 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[6]; 
+PBL1_11_030_0015.Light_Yellow	:= SafetyOutput.EmergencyActivated.EPC1_11_030_0015 OR (SafetyOutput.ResetRequest.PBL1_11_030_0015 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[7]; 
+PBL1_11_030_0030.Light_Yellow	:= SafetyOutput.EmergencyActivated.EPC1_11_030_0030 OR (SafetyOutput.ResetRequest.PBL1_11_030_0030 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[8]; 
+PBL1_11_300_0045.Light_Yellow	:= SafetyOutput.EmergencyActivated.EPC1_11_300_0045 OR (SafetyOutput.ResetRequest.PBL1_11_300_0045 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[9]; 
+PBL2_11_300_0045.Light_Yellow	:= SafetyOutput.EmergencyActivated.EPC1_11_300_0045 OR (SafetyOutput.ResetRequest.PBL2_11_300_0045 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[10]; 
+PBL1_11_300_0085.Light_Yellow	:= SafetyOutput.EmergencyActivated.EPC1_11_300_0085 OR (SafetyOutput.ResetRequest.PBL1_11_300_0085 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[11]; 
+PBL1_11_402_0010.Light_Yellow	:= SafetyOutput.EmergencyActivated.EPC1_11_402_0010 OR (SafetyOutput.ResetRequest.PBL1_11_402_0010 AND fbBlink_500ms.Pulse) OR ToggleBit_PBL[12]; 
